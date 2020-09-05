@@ -7,12 +7,14 @@ import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { CharacterItemComponent } from './components/character-item/character-item.component';
+import { HeaderComponent } from './components/layout/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CharacterItemComponent
+    CharacterItemComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
