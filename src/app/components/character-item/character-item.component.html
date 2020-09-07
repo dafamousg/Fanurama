@@ -1,5 +1,25 @@
 <div [ngClass]="setClasses()">
-    <p>
-        Name: {{character.Name}}
-    </p>
+    <div>
+        Name: {{character.name.first}} {{character.name.middle}} {{character.name.last}}
+        <br>
+        <div *ngIf="character.gender">
+            Gender: {{character.gender}}
+            <br>
+        </div>
+        <div *ngIf="character.age">
+            Age: {{character.age}}
+            <br>
+        </div>
+        <div *ngIf="character.species">
+            Species: {{character.species}}
+            <br>
+        </div>
+        <div *ngIf="character.homePlanet">
+            Planet: {{character.homePlanet}}
+        </div>
+        <div *ngIf="!character.gender && !character.age && !character.species && !character.homePlanet">
+            * No more information found.
+        </div>
+        <br><br><br>
+    </div>
 </div>

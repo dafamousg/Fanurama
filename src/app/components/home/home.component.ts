@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.futuramaServices.getAllCharacters().subscribe(characters => {
-      this.characters = characters;
+      this.characters = characters;      
     });
   }
 

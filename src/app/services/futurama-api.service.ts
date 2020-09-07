@@ -14,13 +14,18 @@ const httpOptions = {
 })
 export class FuturamaAPIService {
 
-  apiUrl:string = 'https://futuramaapi.herokuapp.com/';
+  //Old API not in use
+  /*apiUrl:string = 'https://futuramaapi.herokuapp.com/';
   AllCharactersLink:string = 'api/v2/characters';
+  */
 
+  //New(Current) API
+  apiUrl:string = 'https://sampleapis.com/futurama/api/characters';
+  
   constructor(private http:HttpClient) { }
 
   getAllCharacters():Observable<Character[]>{
-    return this.http.get<Character[]>(`${this.apiUrl}${this.AllCharactersLink}`);
+    return this.http.get<Character[]>(`${this.apiUrl}`);
   }
 
 }
