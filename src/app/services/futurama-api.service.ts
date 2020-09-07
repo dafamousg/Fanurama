@@ -20,7 +20,8 @@ export class FuturamaAPIService {
   */
 
   //New(Current) API
-  apiUrl:string = 'https://sampleapis.com/futurama/api/characters'
+  apiUrl:string = 'https://sampleapis.com/futurama/api/characters';
+  
   constructor(private http:HttpClient) { }
 
   getAllCharacters():Observable<Character[]>{
