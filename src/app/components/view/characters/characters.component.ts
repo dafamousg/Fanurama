@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {Character} from '../../Models/Character';
-import {FuturamaAPIService} from '../../services/futurama-api.service';
+import {Character} from '../../../Models/Character';
+import {FuturamaAPIService} from '../../../services/futurama-api.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-characters',
+  templateUrl: './characters.component.html',
+  styleUrls: ['./characters.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class CharactersComponent implements OnInit {
 
   characters:Character[];
 

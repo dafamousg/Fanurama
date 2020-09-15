@@ -1,4 +1,25 @@
 <div [ngClass]="setClasses()">
+
+  <mat-card>
+    <mat-card-title>
+      <div mat-card-title-text>
+        <span class="md-headline">{{character.name.first}} {{character.name.middle}} {{character.name.last}}</span>
+        <br>
+        <div *ngIf="character.gender">
+          <span class="md-subhead">Gender: {{character.gender}}</span>
+        </div>
+      </div>
+      <div mat-card-title-media>
+        <div class="md-media-lg card-media"></div>
+      </div>
+    </mat-card-title>
+    <mat-card-actions layout="row" layout-align="end center">
+      <button mat-button>Action 1</button>
+      <button mat-button>Action 2</button>
+    </mat-card-actions>
+  </mat-card>
+
+
     <div>
         Name: {{character.name.first}} {{character.name.middle}} {{character.name.last}}
         <br>
