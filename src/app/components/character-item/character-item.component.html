@@ -1,5 +1,3 @@
-<div *ngIf="character.name">
-
   <div [ngClass]="setClasses()">
     
   <mat-card>
@@ -9,6 +7,9 @@
         <br>
         <div *ngIf="character.gender">
           <span class="mat-subheading-2">Gender: {{character.gender}}</span>
+        </div>
+        <div *ngIf="!character.gender">
+          <span class="mat-subheading-2">Gender: {{character.info.gender}}</span>
         </div>
       </div>
       <div mat-card-title-media>
@@ -29,21 +30,28 @@
         Gender: {{character.gender}}
         <br>
         </div>
-        <div *ngIf="character.age">
-            Age: {{character.age}}
-            <br>
+        <div *ngIf="!character.gender">
+        Gender: {{character.info.gender}}
+        <br>
         </div>
+        <div *ngIf="character.age">
+          Age: {{character.age}}
+          <br>
+        </div>
+          <div *ngIf="!character.age">
+            Age: {{character.info.age}}
+          </div>
         <div *ngIf="character.species">
           Species: {{character.species}}
+          <br>
+        </div>
+        <div *ngIf="!character.species">
+          Species: {{character.info.species}}
           <br>
         </div>
         <div *ngIf="character.homePlanet">
           Planet: {{character.homePlanet}}
         </div>
-        <div *ngIf="!character.gender && !character.age && !character.species && !character.homePlanet">
-          * No more information found.
-        </div>
         <br><br><br>
       </div>
     </div>
-  </div>

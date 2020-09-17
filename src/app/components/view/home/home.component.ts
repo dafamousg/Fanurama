@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Character} from '../../../Models/Character';
+import {FuturamaAPIService} from '../../../services/futurama-api.service';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  characters:Character[];
+
+  constructor(private futuramaServices:FuturamaAPIService) { }
 
   ngOnInit(): void {
+    this.futuramaServices.getAllCharacters().subscribe(characters => {
+      this.characters = characters;      
+    });
   }
 
 }

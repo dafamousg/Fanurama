@@ -3,6 +3,11 @@ class name{
     middle:string;
     last:string;
 }
+class info{
+    age:string;
+    gender:string;
+    species:string;
+}
 
 export class Character{
     name:name;
@@ -12,6 +17,7 @@ export class Character{
     age: string;
     species: string;
     homePlanet: String;
+    info:info;
     /*Profession: String;
     Status: String;
     FirstAppearance: String;

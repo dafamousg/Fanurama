@@ -1,1 +1,5 @@
-<p>Home-Page works!</p>
+<div>
+    <app-character-item ngClass="img-wrap" *ngFor="let character of characters"
+    [character]="character">
+    </app-character-item>
+</div>
