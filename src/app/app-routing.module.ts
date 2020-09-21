@@ -4,8 +4,8 @@ import {HomeComponent} from './components/view/home/home.component';
 import {CharactersComponent} from './components/view/characters/characters.component';
 
 const routes: Routes = [
-  {path: '', component: CharactersComponent},
-  {path: 'home', component: HomeComponent}
+  {path: 'characters', component: CharactersComponent},
+  {path: '', component: HomeComponent}
 ];
 
 @NgModule({
