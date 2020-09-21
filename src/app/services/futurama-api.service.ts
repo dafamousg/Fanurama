@@ -26,8 +26,25 @@ export class FuturamaAPIService {
   constructor(private http:HttpClient) { }
 
   getAllCharacters(pageNum:number = 1):Observable<Character[]>{
-    return this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + pageNum}`);
+    //return this.concatCall(1);
+    var ch = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + pageNum}`);
+    
+    return ch;
+  }
 
+  //Tried Concat but didn't work.
+  concatCall(page:number):Observable<Character[]>{
+    var o1 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + page}`);
+    page = 2;
+    while(page < 4){
+      o1 = concat(o1, this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + page}`));
+      console.log(page);
+      
+      ++page;
+    }
+
+    return o1;
+    
   }
 
 }
