@@ -1,3 +1,4 @@
+
 /*class name{
     first:string;
     middle:string;
@@ -25,5 +26,4 @@ export class Character{
     PicUrl: String;
     Relatives: String;
     VoicedBy: String */
-    
 }
