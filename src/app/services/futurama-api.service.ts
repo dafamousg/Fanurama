@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Character} from '../Models/Character';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, concat} from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -15,17 +15,36 @@ const httpOptions = {
 export class FuturamaAPIService {
 
   //Old API not in use
-  /*apiUrl:string = 'https://futuramaapi.herokuapp.com/';
+  apiUrl:string = 'https://futuramaapi.herokuapp.com/';
   AllCharactersLink:string = 'api/v2/characters';
-  */
+  pageLink:string = '?page=';
+  
 
   //New(Current) API
-  apiUrl:string = 'https://sampleapis.com/futurama/api/characters';
+  //apiUrl:string = 'https://sampleapis.com/futurama/api/characters';
   
   constructor(private http:HttpClient) { }
 
-  getAllCharacters():Observable<Character[]>{
-    return this.http.get<Character[]>(`${this.apiUrl}`);
+  getAllCharacters(pageNum:number = 1):Observable<Character[]>{
+    //return this.concatCall(1);
+    var ch = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + pageNum}`);
+    
+    return ch;
+  }
+
+  //Tried Concat but didn't work.
+  concatCall(page:number):Observable<Character[]>{
+    var o1 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + page}`);
+    page = 2;
+    while(page < 4){
+      o1 = concat(o1, this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + page}`));
+      console.log(page);
+      
+      ++page;
+    }
+
+    return o1;
+    
   }
 
 }

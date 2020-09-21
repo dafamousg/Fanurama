@@ -1,0 +1,7 @@
+<div ngClass="img-grid">
+    <app-character-item ngClass="img-wrap" *ngFor="let character of characters"
+    [character]="character">
+    </app-character-item>
+</div>
+<button id="btnPrev" (click)="buttonPrev(this.currentPage)">Prev</button>
+<button (click)="buttonNext(this.currentPage)">Next</button>
