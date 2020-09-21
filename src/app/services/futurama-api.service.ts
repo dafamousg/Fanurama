@@ -27,6 +27,7 @@ export class FuturamaAPIService {
 
   getAllCharacters(pageNum:number = 1):Observable<Character[]>{
     return this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + pageNum}`);
+
   }
 
 }

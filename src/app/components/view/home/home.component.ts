@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Character} from '../../Models/Character';
-import {FuturamaAPIService} from '../../services/futurama-api.service';
+import {Character} from '../../../Models/Character';
+import {FuturamaAPIService} from '../../../services/futurama-api.service';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
