@@ -12,6 +12,7 @@ import { CharacterItemComponent } from './components/character-item/character-it
 import { HeaderComponent } from './components/layout/header/header.component';
 import { CharactersComponent } from './components/view/characters/characters.component';
 import { NotCharactersPipe } from './pipes/not-characters.pipe';
+import { EpisodesComponent } from './components/view/episodes/episodes.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NotCharactersPipe } from './pipes/not-characters.pipe';
     CharacterItemComponent,
     HeaderComponent,
     CharactersComponent,
-    NotCharactersPipe
+    NotCharactersPipe,
+    EpisodesComponent
   ],
   imports: [
     BrowserModule,
