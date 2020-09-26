@@ -1,5 +1,10 @@
-<div>
-    <app-episode-item *ngFor="let episode of episodes"
-    [episode]="episode">
-    </app-episode-item>
-</div>
+<div *ngFor="let episode of episodes" 
+  (click)="ele.class = ele.class == 'showChildren' ? '' :  'showChildren'"
+  [ngClass]="{ hideChildren : ele.class !== 'showChildren' }"
+
+ [title]="episode.title" #ele>
+    Episode: {{episode.title}} - {{ele.ngClass}} <b>Click Me</b>
+    <div>Writer: {{episode.writers}}</div>
+    <div>Air Date: {{episode.originalAirDate}}</div>
+    <div>Description:<br/>{{episode.desc}}</div>
+</div>  
