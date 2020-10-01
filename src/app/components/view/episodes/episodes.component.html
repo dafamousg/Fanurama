@@ -1,10 +1,22 @@
-<div *ngFor="let episode of episodes" 
-  (click)="ele.class = ele.class == 'showChildren' ? '' :  'showChildren'"
-  [ngClass]="{ hideChildren : ele.class !== 'showChildren' }"
+<div>Episode Description: <p id="desc"></p></div>
 
+<br><br>
+<!--<div *ngFor="let episode of episodes" 
+  (click)="ele.class = ele.class == 'showChildren' ? '' :  'showChildren'; DescSelected(episode.desc)"
+  [ngClass]="{ hideChildren : ele.class !== 'showChildren' }"
  [title]="episode.title" #ele>
-    Episode: {{episode.title}} - {{ele.ngClass}} <b>Click Me</b>
-    <div>Writer: {{episode.writers}}</div>
-    <div>Air Date: {{episode.originalAirDate}}</div>
-    <div>Description:<br/>{{episode.desc}}</div>
-</div>  
+
+    <b>Episode:</b> {{episode.title}} <b>Click Me</b>
+    <div><b>Writer:</b> {{episode.writers}}</div>
+    <div><b>Air Date:</b> {{episode.originalAirDate}}</div>
+    
+</div>-->
+<div>
+  <div *ngFor="let episode of episodes; let i = index">
+    <a (click)="DescSelected(i,episode.desc)" class="btn btn-info">{{episode.title}}</a>
+    <div id="episodeInfo{{i}}" style="display:none">
+      {{episode.writers}}<br><br>
+      {{episode.originalAirDate}}
+    </div>
+  </div>
+</div>
