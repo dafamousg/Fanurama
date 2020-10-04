@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { empty } from 'rxjs';
 import {Episode} from '../../../Models/Episode';
 import {FuturamaAPIService} from '../../../services/futurama-api.service';
 
@@ -16,39 +17,57 @@ export class EpisodesComponent implements OnInit {
 
   ngOnInit(): void {
     this.futuramaServices.getAllEpisodes().subscribe(ep => {
-      this.episodes = ep;
-      for(var x in this.episodes){
-        if(parseInt(x) < 13){
-          //console.log(x);
+      //If episode 1-12, season = 1
+      ep.map(s => {
+        var id = s.id;
+        switch(s != null){
+          case (id <= 13):
+            s.season = 1;            
+            break;
+          case (id <= 32):
+            s.season = 2;
+            break;
+          case (id <= 54):
+            s.season = 3;
+            break;
+          case (id <= 72):
+            s.season = 4;
+            break;
+          case (id <= 76):
+            s.season = 5;
+            break;
+          case (id <= 102):
+            s.season = 6;
+            break;
+          case (id <= 128):
+            s.season = 7;
+            break;
+          default:
+            s.season = 0;
+            break;
         }
-        
-      }     
+        this.episodes = ep;
+      })   
     })
   }
 
   //Shows episode description on top of page in div element (id = desc)
   DescSelected(id:any, desc:any){
-    var x = document.getElementById("episodeInfo" + id);
-  if (x.style.display === "none") {
-    x.style.display = "block";
-    document.getElementById("desc").innerHTML = desc;
-  } else {
-    x.style.display = "none";
-  }
-    /* this.descSelected = !this.descSelected;
-    if(value == document.getElementById("desc").innerHTML){
-      console.log(value + " = " + document.getElementById("desc").innerHTML);
-      
+    var episodeId = document.getElementById("episodeInfo" + id);
+    var topDesc = document.getElementById("desc");
+
+    if (!topDesc.innerHTML && episodeId.style.display === "none") {
+
+      episodeId.style.display = "block";
+      topDesc.innerHTML = desc;
+
+    } else if(topDesc.innerHTML && episodeId.style.display === "block") {
+
+      episodeId.style.display = "none";
+      topDesc.innerHTML = "";
+
     }
-    if(this.descSelected){
-      console.log("DescSelected is true");
-      
-      //document.getElementById("desc").innerHTML = value;
-    }
-    else if(!this.descSelected){
-      console.log("DescSelected is false");
-      //document.getElementById("desc").innerHTML = null;
-    } */
+  
   }
 
 }

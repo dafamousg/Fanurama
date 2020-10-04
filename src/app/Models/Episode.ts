@@ -4,4 +4,5 @@ export class Episode{
     originalAirDate:string;
     desc:string;
     season:number;
+    id:number;
 }
