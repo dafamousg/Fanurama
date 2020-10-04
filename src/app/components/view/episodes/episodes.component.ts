@@ -50,6 +50,12 @@ export class EpisodesComponent implements OnInit {
       })   
     })
   }
+  
+  //Todo: Collapse all episodes when season collapses
+
+  getSeason(season:any){
+    return this.episodes?.filter(episode => episode.season === season)
+  }
 
   //Shows episode description on top of page in div element (id = desc)
   DescSelected(id:any, desc:any){

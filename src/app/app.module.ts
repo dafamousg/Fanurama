@@ -4,7 +4,9 @@ import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button'
+import {MatButtonModule} from '@angular/material/button';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/view/home/home.component';
@@ -32,7 +34,9 @@ import { EpisodeItemComponent } from './components/itemView/episode-item/episode
     HttpClientModule,
     FormsModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatExpansionModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
