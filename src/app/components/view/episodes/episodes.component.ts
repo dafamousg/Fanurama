@@ -50,8 +50,6 @@ export class EpisodesComponent implements OnInit {
       })   
     })
   }
-  
-  //Todo: Collapse all episodes when season collapses
 
   getSeason(season:any){
     return this.episodes?.filter(episode => episode.season === season)
@@ -62,15 +60,30 @@ export class EpisodesComponent implements OnInit {
     var episodeId = document.getElementById("episodeInfo" + id);
     var topDesc = document.getElementById("desc");
 
+    //If pageDesc is empty or episodeInfo is collapsed, show info and change pageDesc
     if (!topDesc.innerHTML && episodeId.style.display === "none") {
 
       episodeId.style.display = "block";
       topDesc.innerHTML = desc;
 
-    } else if(topDesc.innerHTML && episodeId.style.display === "block") {
+    }
+    //If pageDesc is not empty and episode info is opened, collapse info and remove pageDesc
+    else if(topDesc.innerHTML && episodeId.style.display === "block") {
 
       episodeId.style.display = "none";
       topDesc.innerHTML = "";
+
+    }
+    //If pageDesc is not empty and current episodeInfo is collapse, show new episodeInfo and pageDesc.
+    else if(topDesc.innerHTML && episodeId.style.display !== "block"){
+      var episode = this.episodes?.filter(ep => ep.desc === topDesc.innerHTML);
+
+      episode.map( e => {
+        document.getElementById("episodeInfo" + e.id).style.display="none";
+      })
+      
+      episodeId.style.display = "block";
+      topDesc.innerHTML = desc;
 
     }
   
