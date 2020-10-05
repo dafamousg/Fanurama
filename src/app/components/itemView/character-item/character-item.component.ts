@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Character } from 'src/app/Models/Character';
-import { FuturamaAPIService } from '../../services/futurama-api.service';
+import { FuturamaAPIService } from '../../../services/futurama-api.service';
 
 @Component({
   selector: 'app-character-item',
