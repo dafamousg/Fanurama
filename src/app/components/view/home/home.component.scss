@@ -4,9 +4,50 @@ div{
   text-align: center;
 }
 
+.container-1{
+  height: 100vh;
+  background: linear-gradient(rgba(39, 39, 39, 0.5),rgba(0,0,0,1)), url(../../../../../pics/nebula.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.container-2{
+  background: rgba(0, 0, 0);
+  color: #fff;
+}
+
+.container-3{
+  background: linear-gradient(rgba(0, 0, 0, 0.8) , rgba(0, 0, 0, 0.3)), url(../../../../../pics/futurama-2.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.btns{
+  width: 70%;
+  //background-color: linear-gradient(rgba(73, 73, 73, 0.8), rgba(73, 73, 73, 0.8));
+}
+
 button{
   padding: 50px 100px;
   margin-top: 2rem;
+}
+
+//Scroll Animation
+.item {
+  width: 200px;
+  height: 200px;
+  margin: 50px auto;
+  padding-top: 75px;
+  background: #ccc;
+  text-align: center;
+  color: #FFF;
+  font-size: 3em;
 }
 
 
@@ -40,24 +81,8 @@ body {
   font-weight: 400;
 }
 
-// Main wrap
-.buttons {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-}
-
 // Button wrap
 .container { 
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 1em;
-    text-align: center; 
     
     @media (min-width: 600px) {
         flex-direction: row;
@@ -65,66 +90,11 @@ body {
     }
 }
 
-h1 {
-  color: $white;
-  font-size: 1.25em;
-  font-weight: 900;
-  margin: 0 0 2em;
-  
-  @media (min-width: 450px) {
-    font-size: 1.75em;
-  }
-  
-  @media (min-width: 760px) {
-    font-size: 3.25em;
-  }
-  
-  @media (min-width: 900px) {
-    font-size: 5.25em;
-    margin: 0 0 1em;
-  }
-}
-
-p {
-  color: $white;
-  font-size: 12px;
-  
-  @media(min-width: 600px) {
-    left: 50%;
-    position: absolute; 
-    transform: translate(-50%, 0);
-    top: 90%;
-  }
-  
-  @media(max-height: 500px) {
-    left: 0;
-    position: relative;
-    top: 0;
-    transform: translate(0, 0);
-  }
-  
-  a {
-    background: rgba($white, 0);
-    border-bottom: 1px solid;
-    color: $white;
-    line-height: 1.4;
-    padding: .25em;
-    text-decoration: none;
-    
-    &:hover {
-      background: rgba($white, 1);
-      color: $red;
-    }
-  }
-}
-//button styles
-
 
 //default button
 .btn {
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   cursor: pointer;
-  // display: block;
   font-size:16px;
   font-weight: 400;
   line-height: 45px;
@@ -135,30 +105,15 @@ p {
   text-transform: uppercase;
   width: 100%; 
   
-//   @media(min-width: 400px) {
-//     display: inline-block;
-//     margin-right: 2.5em;
-  
-//     &:nth-of-type(even) {
-//       margin-right: 0;
-//     }
-//   }
-  
   @media(min-width: 600px) {
       
     margin: 0 1em 2em;
-  
-//     &:nth-of-type(even) {
-//       margin-right: 2.5em;
-//     }
-    
-//     &:nth-of-type(5) {
-//       margin-right: 0;
-//     }
     
   }
   
-  &:hover { text-decoration: none; }
+  &:hover {
+    text-decoration: none;
+  }
   
 }
 
@@ -177,7 +132,7 @@ p {
 .btn-2:after,
 .btn-2:before {
   backface-visibility: hidden;
-  border: 1px solid rgba(rgb(0, 0, 0), 0);
+  border: 1px solid rgba(rgb(255, 255, 255), 0);
   bottom: 0px;
   content: " ";
   display: block;
@@ -190,14 +145,14 @@ p {
 .btn-2:hover:after,
 .btn-2:hover:before {
   backface-visibility: hidden;
-  border-color: rgb(0, 0, 0);
+  border-color: rgb(255, 255, 255, 0.4);
   transition: width 350ms ease-in-out;
-  width: 70%;
+  width: auto;
 }
 
 .btn-2:hover:before {
   bottom: auto;
   top: 0;
-  width: 70%;
+  width: auto;
 }
 
