@@ -5,32 +5,55 @@ div{
 }
 
 .container-1{
-  height: 100vh;
-  background: linear-gradient(rgba(39, 39, 39, 0.5),rgba(0,0,0,1)), url(../../../../../pics/nebula.jpg);
+  background: linear-gradient(to top,rgba(0,0,0,1), rgba(39, 39, 39, 0.5),rgba(0,0,0,1)), url(../../../../../pics/nebula.jpg);
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  //background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 
+  height: 100vh;
 }
 
 .container-2{
-  background: rgba(0, 0, 0);
+  position: relative;
+  width: 100%;
+  background: linear-gradient(rgba(0,0,0,0.9), rgba(0, 0, 0, 0.8),rgba(0,0,0,0.9)),url(../../../../../pics/empty-space.png);
   color: #fff;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  #ss{
+    position: absolute;
+    
+    width: 100%;
+    height: 100%;
+    background: url(../../../../../pics/space.gif);
+    background-repeat: no-repeat;
+  }
+  .serieInfo{
+    width: 70%;
+    position: relative;
+    background: linear-gradient(rgba(0,0,0), rgba(39, 39, 39, 0.5),rgba(0,0,0)), rgba(0,0,0, 0.8);
+  }
 }
 
 .container-3{
-  background: linear-gradient(rgba(0, 0, 0, 0.8) , rgba(0, 0, 0, 0.3)), url(../../../../../pics/futurama-2.jpg);
-  background-attachment: fixed;
+  background: linear-gradient(rgba(0, 0, 0, 1) ,rgba(0, 0, 0, .1) , rgba(0, 0, 0, 1)), url(../../../../../pics/futurama-2.jpg);
+  //background-attachment: fixed;
+  height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  display:fixed;
 }
 
 .btns{
   width: 70%;
-  //background-color: linear-gradient(rgba(73, 73, 73, 0.8), rgba(73, 73, 73, 0.8));
+
+  .a{
+    display: flex;
+  }
 }
 
 button{

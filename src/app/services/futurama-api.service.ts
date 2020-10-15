@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import {Character} from '../Models/Character';
+import { Episode } from '../Models/Episode';
+import { Serie } from '../Models/Serie';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, concat} from 'rxjs';
-import { Episode } from '../Models/Episode';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -15,26 +16,35 @@ const httpOptions = {
 })
 export class FuturamaAPIService {
 
-  //Old API not in use
-  apiUrl:string = 'https://futuramaapi.herokuapp.com/api/';
+  ////#region FuturamaApi
+  // http://futuramaapi.herokuapp.com
+  //////#endregion
+  futuramaApiUrl:string = 'https://futuramaapi.herokuapp.com/api/';
   AllCharactersLink:string = 'v2/characters';
   pageLink:string = '?page=';
-  episodeLink:string = 'https://sampleapis.com/futurama/api/episodes';
-  
 
-  //New(Current) API
-  //apiUrl:string = 'https://sampleapis.com/futurama/api/characters';
+  ///#region Sample API
+  //https://sampleapis.com/futurama
+  ////#endregion
+  sampleApiUrl:string = 'https://sampleapis.com/futurama/api/';
+  episodesLink:string = 'episodes';
+  serieInfoLink:string = 'info';
+  
   
   constructor(private http:HttpClient) { }
 
 
   getAllEpisodes():Observable<Episode[]>{
-    return this.http.get<Episode[]>(`${this.episodeLink}`);
+    return this.http.get<Episode[]>(`${this.sampleApiUrl + this.episodesLink}`);
+  }
+
+  getSeriesInfo():Observable<Serie[]>{
+    return this.http.get<Serie[]>(`${this.sampleApiUrl + this.serieInfoLink}`);;
   }
 
   getAllCharacters(pageNum:number = 1):Observable<Character[]>{
     //return this.concatCall(1);
-    var ch = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + pageNum}`);
+    var ch = this.http.get<Character[]>(`${this.futuramaApiUrl + this.AllCharactersLink + this.pageLink + pageNum}`);
     
     return ch;
   }
