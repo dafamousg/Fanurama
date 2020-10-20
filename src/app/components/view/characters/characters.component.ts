@@ -23,7 +23,7 @@ export class CharactersComponent implements OnInit {
 
 
   GetCharacterByPage(page:number){
-    this.futuramaServices.getAllCharacters(page).subscribe(characters => {
+    this.futuramaServices.combinedObservable().subscribe(characters => {
       this.characters = characters;      
     });
     this.currentPage = page;
