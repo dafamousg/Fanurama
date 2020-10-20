@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
     
     
     
-    ss.style.right = -value + 0.5 + 'px';
+    ss.style.right = -value + 150 + 'px';
     
 
   }

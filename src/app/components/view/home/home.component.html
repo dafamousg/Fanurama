@@ -1,3 +1,9 @@
+<div class="selection">
+    <img [src]="'assets/trio-transparent.png'" id="trio"/>
+    <div class="futurama-intro">
+        <img [src]="'assets/logo-intro.png'" id="logo"/>
+    </div>
+</div>
 <div class="container-1">
     <div class="btns" data-aos="zoom-in">
         <a type="button" [routerLink]="'/characters'" class="btn btn-2">Character</a>
@@ -7,6 +13,9 @@
     </div>
 </div>
 <div class="container-2" *ngIf="serie">
+    <div class="about">
+        <h2>About Show</h2>
+    </div>
     <div id="ss" (scroll)="scrollAnimation()">
     </div>
     <div class="serieInfo" data-aos="zoom-in" data-aos-anchor-placement="bottom-bottom">
