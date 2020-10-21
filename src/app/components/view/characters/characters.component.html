@@ -1,6 +1,7 @@
+<input type="text" [(ngModel)]="searchText"/>
 <button (click)="reverse()"> Reverse Order</button>
 <div ngClass="img-grid">
-    <app-character-item ngClass="img-wrap" *ngFor="let character of characters"
+    <app-character-item ngClass="img-wrap" *ngFor="let character of characters | notCharacters: searchText"
     [character]="character">
     </app-character-item>
 </div>

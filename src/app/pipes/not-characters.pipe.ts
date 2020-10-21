@@ -1,3 +1,4 @@
+import { isNgTemplate } from '@angular/compiler';
 import { Pipe, PipeTransform } from '@angular/core';
 import { Character } from '../Models/Character';
 
@@ -6,15 +7,20 @@ import { Character } from '../Models/Character';
 })
 export class NotCharactersPipe implements PipeTransform {
 
-  character:Character[];
 
-  transform(character:Character[]): any {
-    if (!character) {
-        return character;
+  transform(characters:Character[], searchText:string): any {
+    if (!characters) {
+        return [];
     }
-    // filter items array, items which match and return true will be
-    // kept, false will be filtered out
-    return character.filter(item => item.Name);
+    if (!searchText){
+      return characters;
+    }
+
+    searchText = searchText.toLocaleLowerCase();
+
+    return characters.filter(character => {
+      return character.Name.toLocaleLowerCase().includes(searchText);
+    })
 }
 
 }
