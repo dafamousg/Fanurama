@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Character} from '../Models/Character';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { Episode } from '../Models/Episode';
 import {Observable, concat, forkJoin} from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -16,15 +17,21 @@ const httpOptions = {
 export class FuturamaAPIService {
 
   //Old API not in use
-  apiUrl:string = 'https://futuramaapi.herokuapp.com/';
-  AllCharactersLink:string = 'api/v2/characters';
+  apiUrl:string = 'https://futuramaapi.herokuapp.com/api/';
+  AllCharactersLink:string = 'v2/characters';
   pageLink:string = '?page=';
+  episodeLink:string = 'https://sampleapis.com/futurama/api/episodes';
   
 
   //New(Current) API
   //apiUrl:string = 'https://sampleapis.com/futurama/api/characters';
   
   constructor(private http:HttpClient) { }
+
+
+  getAllEpisodes():Observable<Episode[]>{
+    return this.http.get<Episode[]>(`${this.episodeLink}`);
+  }
 
   getAllCharacters(pageNum:number = 1):Observable<Character[]>{
     //return this.concatCall(1);
