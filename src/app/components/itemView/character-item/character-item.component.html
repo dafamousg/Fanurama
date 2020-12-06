@@ -1,31 +1,52 @@
 <div [ngClass]="setClasses()">
-    
-  <mat-card>
-    <mat-card-title>
-      <div mat-card-title-text>
-        <span class="mat-headline">{{character.Name}}</span>
+
+  <div class="cardView">
+    <div>
+      <span class="name">{{character.Name}}</span>({{character.Status}})
+    </div>
+    <div>
+      <button>Action 1</button>
+      <button>Action 2</button>
+    </div>
+    <br>
+    <div>
+      <div *ngIf="character.Age">
+        Age: {{character.Age}}
+        <br>
+      </div>
+      <div *ngIf="character.Species">
+        Species: {{character.Species}}
+        <br>
+      </div>
+      <div *ngIf="character.Planet">
+        Planet: {{character.Planet}}
+      </div>
+    </div>
+  </div>
+
+    <!--#region Leela color change  -->
+    <!-- <div class="cardView-Leela"  *ngIf="character.Name.includes('Leela')">
+
+      <div>
+        <h1>{{character.Name}}</h1>
         <br>
         <div *ngIf="character.Status">
-          <span class="mat-subheading-2">Status: {{character.Status}}</span>
+          <span >Status: {{character.Status}}</span>
         </div>
       </div>
-      <div mat-card-title-media>
-        <div class="mat-media-lg card-media"></div>
+      <div>
+        <div></div>
       </div>
-    </mat-card-title>
-    <mat-card-actions layout="row" layout-align="end center">
-      <button mat-button>Action 1</button>
-      <button mat-button>Action 2</button>
-    </mat-card-actions>
-  </mat-card>
-  
-
-    <div>
-      Name: {{character.Name}}
-      <br>
-      <div *ngIf="character.Status">
-        Status: {{character.Status}}
+      <div>
+        <button>Action 1</button>
+        <button>Action 2</button>
+      </div>
+      <div>
+        Name: {{character.Name}}
         <br>
+        <div *ngIf="character.Status">
+          Status: {{character.Status}}
+          <br>
         </div>
         <div *ngIf="character.Age">
           Age: {{character.Age}}
@@ -38,6 +59,10 @@
         <div *ngIf="character.Planet">
           Planet: {{character.Planet}}
         </div>
-        <br><br><br>
       </div>
-    </div>
+    </div> -->
+  <!--#endregion -->
+  
+</div>
+
+

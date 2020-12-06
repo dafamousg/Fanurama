@@ -1,8 +1,23 @@
-.carddemoBasicUsage .card-media {
+.cardView{
   background-color: #999999;
+  border-radius: 6px;
+  border: 1px solid black;
+  padding: 20px;
 }
-
-.mat-button:hover{
+.cardView-Leela{
+  background-color: purple;
+  border: 1px solid black;
+}
+.name{
+  font-size: x-large;
+}
+button{
+  background-color: rgb(122, 122, 122);
+  border: 1px solid black;
+  text-decoration: none;
+  margin-right: 10px;
+}
+button:hover{
   background-color: rgb(163, 163, 163);
 }
 
