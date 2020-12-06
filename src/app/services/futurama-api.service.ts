@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import {Character} from '../Models/Character';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable, concat} from 'rxjs';
 import { Episode } from '../Models/Episode';
+import {Observable, concat, forkJoin} from 'rxjs';
+import { map } from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -40,16 +41,33 @@ export class FuturamaAPIService {
   }
 
   //Tried Concat but didn't work.
-  /*concatCall(page:number):Observable<Character[]>{
-    var o1 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + page}`);
-    page = 2;
-    while(page < 4){
-      o1 = concat(o1, this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + page}`));
-      console.log(page);
-      
-      ++page;
-    }
-    return o1;
-  }*/
+  combinedObservable():Observable<Character[]>{
+    const character1 =  this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 1}`);
+    const character2 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 2}`);
+    const character3 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 3}`);
+    const character4 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 4}`);
+    const character5 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 5}`);
+    const character6 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 6}`);
+    const character7 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 7}`);
+    const character8 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 8}`);
+    const character9 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 9}`);
+    const character10 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 10}`);
+    const character11 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 11}`);
+    const character12 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 12}`);
+    const character13 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 13}`);
+    const character14 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 14}`);
+    const character15 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 15}`);
+    const character16 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 16}`);
+    const character17 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 17}`);
+    const character18 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 18}`);
+    const character19 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 19}`);
+    const character20 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 20}`);
+    const character21 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 21}`);
+    
+
+    return forkJoin([character1, character2, character3, character4, character5, character6, character7, character8, character9, character10, character11, character12, character13, character14, character15, character16, character17, character18, character19, character20, character21]).pipe(map(res => {
+      return [].concat(...res);
+    }));
+  }
 
 }
