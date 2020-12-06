@@ -1,27 +1,33 @@
-<div [ngClass]="setClasses()">
+<div [ngClass]="setClasses()" class="characterCard">
 
   <div class="cardView">
-    <div>
-      <span class="name">{{character.Name}}</span>({{character.Status}})
-    </div>
-    <div>
-      <button>Action 1</button>
-      <button>Action 2</button>
-    </div>
-    <br>
-    <div>
-      <div *ngIf="character.Age">
-        Age: {{character.Age}}
-        <br>
+    <div class="info">
+      <div>
+        <span class="name">{{character.Name}}</span>({{character.Status}})
       </div>
-      <div *ngIf="character.Species">
-        Species: {{character.Species}}
-        <br>
+      <br>
+      <div class="img">
+        <img src="{{character.PicUrl}}" width="150px" height="187px"/>
       </div>
-      <div *ngIf="character.Planet">
-        Planet: {{character.Planet}}
+      <div>
+        <button>Action 1</button>
+        <button>Action 2</button>
       </div>
-    </div>
+      <br>
+      <div>
+        <div *ngIf="character.Age">
+          Age: {{character.Age}}
+          <br>
+        </div>
+        <div *ngIf="character.Species">
+          Species: {{character.Species}}
+          <br>
+        </div>
+        <div *ngIf="character.Planet">
+          Planet: {{character.Planet}}
+        </div>
+      </div>
+  </div>
   </div>
 
     <!--#region Leela color change  -->
