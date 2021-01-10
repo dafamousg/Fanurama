@@ -1,13 +1,17 @@
 <div [ngClass]="setClasses()" class="characterCard">
 
   <div class="cardView">
-    <div class="info">
+    <div class="infoCard">
       <div>
-        <span class="name">{{character.Name}}</span>({{character.Status}})
+        <!--Fix height for name so cardview looks same regardless of name length-->
+        <span class="name">{{character.Name}}</span>
       </div>
       <br>
       <div class="img">
         <img src="{{character.PicUrl}}" width="150px" height="187px"/>
+      </div>
+      <div class="status">
+        ({{character.Status}})
       </div>
       <div>
         <button>Action 1</button>
@@ -21,27 +25,32 @@
         <div class="dd-content">
           
           <div *ngIf="character.Age">
-            Age: {{character.Age}}
-            <br>
-          </div>
-          <div *ngIf="character.Profession">
-            Profession: {{character.Profession}}
+            <span>Age:</span> 
+             <p>{{character.Age}}</p>
           </div>
           <div *ngIf="character.Species">
-            Species: {{character.Species}}
-            <br>
+            <span>Species:</span>
+            <p>{{character.Species}}</p>
           </div>
           <div *ngIf="character.Planet">
-            Planet: {{character.Planet}}
+            <span>Planet:</span>
+            <p>{{character.Planet}}</p>
+          </div>
+          <div *ngIf="character.Profession">
+            <span>Profession:</span> 
+            <p>{{character.Profession}}</p>
           </div>
           <div *ngIf="!character.Relatives.includes('relatives')">
-            Relatives: {{character.Relatives}}
+            <span>Relatives:</span>
+            <p>{{character.Relatives}}</p>
           </div>
           <div *ngIf="character.FirstAppearance">
-            FirstAppearance: {{character.FirstAppearance}}
+            <span>FirstAppearance:</span>
+            <p>{{character.FirstAppearance}}</p>
           </div>
           <div *ngIf="character.VoicedBy">
-            VoicedBy: {{character.VoicedBy}}
+            <span>VoicedBy:</span>
+            <p>{{character.VoicedBy}}</p>
           </div>
           
         </div>
