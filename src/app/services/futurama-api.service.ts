@@ -20,7 +20,7 @@ export class FuturamaAPIService {
   apiUrl:string = 'https://futuramaapi.herokuapp.com/api/';
   AllCharactersLink:string = 'v2/characters';
   pageLink:string = '?page=';
-  episodeLink:string = 'https://sampleapis.com/futurama/api/episodes';
+  episodeLink:string = 'https://api.sampleapis.com/futurama/episodes';
   
 
   //New(Current) API
