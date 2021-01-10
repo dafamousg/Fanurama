@@ -22,10 +22,13 @@ export class CharactersComponent implements OnInit {
   }
 
   getCharacters(){
-    this.subscription = this.futuramaServices.combinedObservable().subscribe(characters => {
+    this.subscription = this.futuramaServices.getAllCharacters().subscribe(characters => {
+      this.characters = characters;
+    })
+    /* this.subscription = this.futuramaServices.combinedObservable().subscribe(characters => {
       this.characters = characters.sort((a, b) => a.Name.localeCompare(b.Name));;
       console.log(characters);
-    });
+    }); */
   }
 
 
