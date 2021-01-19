@@ -56,13 +56,13 @@ export class EpisodesComponent implements OnInit {
   }
 
   //Shows episode description on top of page in div element (id = desc)
-  DescSelected(id:any, desc:any){
+  /* DescSelected(id:any, desc:any){
     var episodeId = document.getElementById("episodeInfo" + id);
     var topDesc = document.getElementById("desc");
 
     //If pageDesc is empty or episodeInfo is collapsed, show info and change pageDesc
     if (!topDesc.innerHTML && episodeId.style.display === "none") {
-
+      
       episodeId.style.display = "block";
       topDesc.innerHTML = desc;
 
@@ -87,6 +87,44 @@ export class EpisodesComponent implements OnInit {
 
     }
   
+  } */
+
+    
+    OpenEpisodeInfo(id:any){
+      var episodeId = document.getElementById("episodeInfo" + id);      
+      var episodeObj = this.episodes?.filter(ep => ep.id === id);
+      var openEpisodes = this.episodes?.filter(ep => ep.isOpen === true);
+      
+      if (episodeId.style.display === "none") {
+        
+        openEpisodes.map( e => {
+          e.isOpen = false;
+          document.getElementById("episodeInfo" + e.id).style.display="none";
+        })
+
+        episodeObj.map( e => {
+          e.isOpen = true;
+          episodeId.style.display = "block";
+        })
+        
+      }
+      //Display None to all episodes that should not be open.
+      else{
+        openEpisodes.map( e => {
+          e.isOpen = false;
+          document.getElementById("episodeInfo" + e.id).style.display="none";
+        })
+  
+      }    
+    }
+
+
+  OpenSeason(season:number){
+    console.log("OpenSeason");
+    
+    var seasonElement = document.getElementById("season" + season);
+
+    seasonElement.style.display = "block";
   }
 
 }

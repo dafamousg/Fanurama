@@ -1,28 +1,109 @@
-<div>Episode Description: <p id="desc"></p></div>
-
 <br><br>
-
+<!--Season dropdown without mat-accordion-->
+<!--   <div class="seasonContainer">
+  <div>
+    <span (click)="OpenSeason(1)" class="season"><b>Season 1</b></span>
+    <div id="season1"  ngClass="img-grid">
+      <div *ngFor="let episode of getSeason(1); let i = index">
+        <a (click)="OpenEpisodeInfo(episode.id,episode.desc)" class="btn btn-info">{{episode.id}}. {{episode.title}}</a>
+        <div id="episodeInfo{{episode.id}}" class="episodeinfo" style="display:none">
+          <div class="top">
+            <span>Description:</span>
+            <p>{{episode.desc}}</p>
+          </div>
+          <div class="bottom">
+            <div>
+              <span>Writers:</span>
+              <p>{{episode.writers}}</p>
+            </div>
+            <div>
+              <span>Air Date:</span>
+              <p>{{episode.originalAirDate}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <div>
+    <span (click)="OpenSeason(2)" class="season"><b>Season 2</b></span>
+    <div id="season2">
+      <div *ngFor="let episode of getSeason(2); let i = index">
+        <a (click)="OpenEpisodeInfo(episode.id,episode.desc)" class="btn btn-info">{{episode.id}}. {{episode.title}}</a>
+        <div id="episodeInfo{{episode.id}}" class="episode" style="display:none">
+          <span>Writers:</span>
+          <p>{{episode.writers}}</p>
+          <span>Air Date:</span>
+          <p>{{episode.originalAirDate}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <span (click)="OpenSeason(3)" class="season"><b>Season 3</b></span>
+    <div id="season3"  ngClass="img-grid">
+      <div *ngFor="let episode of getSeason(3); let i = index">
+        <a (click)="OpenEpisodeInfo(episode.id,episode.desc)" class="btn btn-info">{{episode.id}}. {{episode.title}}</a>
+        <div id="episodeInfo{{episode.id}}" class="episode" style="display:none">
+          <span>Writers:</span>
+          <p>{{episode.writers}}</p>
+          <span>Air Date:</span>
+          <p>{{episode.originalAirDate}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div>
+    <span (click)="OpenSeason(4)" class="season"><b>Season 4</b></span>
+    <div id="season4">
+      <div *ngFor="let episode of getSeason(4); let i = index">
+        <a (click)="OpenEpisodeInfo(episode.id,episode.desc)" class="btn btn-info">{{episode.id}}. {{episode.title}}</a>
+        <div id="episodeInfo{{episode.id}}" class="episode" style="display:none">
+          <span>Writers:</span>
+          <p>{{episode.writers}}</p>
+          <span>Air Date:</span>
+          <p>{{episode.originalAirDate}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="accordion">
   <mat-accordion>
-    <mat-expansion-panel hideToggle>
+    <mat-expansion-panel class="seasonPanel" hideToggle>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          <b>Season 1</b>
+          <span class="season"><b>Season 1</b></span>
         </mat-panel-title>
         <mat-panel-description>
           About Season 1
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <div *ngFor="let episode of getSeason(1); let i = index">
-        <a (click)="DescSelected(episode.id,episode.desc)" class="btn btn-info">{{episode.title}}</a>
-        <div id="episodeInfo{{episode.id}}" style="display:none">
-          season: {{episode.season}}<br>
-          {{episode.writers}}<br><br>
-          {{episode.originalAirDate}}
+
+      <div class="episodeContainer" *ngFor="let episode of getSeason(1); let i = index">
+        <a (click)="OpenEpisodeInfo(episode.id,episode.desc)" class="btn btn-info">{{episode.id}}. {{episode.title}}</a>
+        <div id="episodeInfo{{episode.id}}" class="episodeinfo" style="display:none">
+          <div class="top">
+            <span>Description:</span>
+            <p>{{episode.desc}}</p>
+          </div>
+          <div class="bottom">
+            <div>
+              <span>Writers:</span>
+              <p>{{episode.writers}}</p>
+            </div>
+            <div>
+              <span>Air Date:</span>
+              <p>{{episode.originalAirDate}}</p>
+            </div>
+          </div>
         </div>
       </div>
     </mat-expansion-panel>
-    <mat-expansion-panel hideToggle>
+
+    <mat-expansion-panel class="seasonPanel" hideToggle>
       <mat-expansion-panel-header>
         <mat-panel-title>
           <b>Season 2</b>
@@ -31,18 +112,28 @@
           About Season 2
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <div>
-        <div *ngFor="let episode of getSeason(2); let i = index">
-          <a (click)="DescSelected(episode.id,episode.desc)" class="btn btn-info">{{episode.title}}</a>
-          <div id="episodeInfo{{episode.id}}" style="display:none">
-            season: {{episode.season}}<br>
-            {{episode.writers}}<br><br>
-            {{episode.originalAirDate}}
+      <div *ngFor="let episode of getSeason(2); let i = index">
+        <a (click)="OpenEpisodeInfo(episode.id,episode.desc)" class="btn btn-info">{{episode.id}}. {{episode.title}}</a>
+        <div id="episodeInfo{{episode.id}}" class="episodeinfo" style="display:none">
+          <div class="top">
+            <span>Description:</span>
+            <p>{{episode.desc}}</p>
+          </div>
+          <div class="bottom">
+            <div>
+              <span>Writers:</span>
+              <p>{{episode.writers}}</p>
+            </div>
+            <div>
+              <span>Air Date:</span>
+              <p>{{episode.originalAirDate}}</p>
+            </div>
           </div>
         </div>
       </div>
     </mat-expansion-panel>
-    <mat-expansion-panel hideToggle>
+
+    <mat-expansion-panel class="seasonPanel" hideToggle>
       <mat-expansion-panel-header>
         <mat-panel-title>
           <b>Season 3</b>
@@ -51,18 +142,27 @@
           About Season 3
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <div>
-        <div *ngFor="let episode of getSeason(3); let i = index">
-          <a (click)="DescSelected(episode.id,episode.desc)" class="btn btn-info">{{episode.title}}</a>
-          <div id="episodeInfo{{episode.id}}" style="display:none">
-            season: {{episode.season}}<br>
-            {{episode.writers}}<br><br>
-            {{episode.originalAirDate}}
+      <div *ngFor="let episode of getSeason(3); let i = index">
+        <a (click)="OpenEpisodeInfo(episode.id,episode.desc)" class="btn btn-info">{{episode.id}}. {{episode.title}}</a>
+        <div id="episodeInfo{{episode.id}}" class="episodeinfo" style="display:none">
+          <div class="top">
+            <span>Description:</span>
+            <p>{{episode.desc}}</p>
+          </div>
+          <div class="bottom">
+            <div>
+              <span>Writers:</span>
+              <p>{{episode.writers}}</p>
+            </div>
+            <div>
+              <span>Air Date:</span>
+              <p>{{episode.originalAirDate}}</p>
+            </div>
           </div>
         </div>
       </div>
     </mat-expansion-panel>
-    <mat-expansion-panel hideToggle>
+    <mat-expansion-panel class="seasonPanel" hideToggle>
       <mat-expansion-panel-header>
         <mat-panel-title>
           <b>Season 4</b>
@@ -71,38 +171,58 @@
           About Season 4
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <div>
-        <div *ngFor="let episode of getSeason(4); let i = index">
-          <a (click)="DescSelected(episode.id,episode.desc)" class="btn btn-info">{{episode.title}}</a>
-          <div id="episodeInfo{{episode.id}}" style="display:none">
-            season: {{episode.season}}<br>
-            {{episode.writers}}<br><br>
-            {{episode.originalAirDate}}
+      <div *ngFor="let episode of getSeason(4); let i = index">
+        <a (click)="OpenEpisodeInfo(episode.id,episode.desc)" class="btn btn-info">{{episode.id}}. {{episode.title}}</a>
+        <div id="episodeInfo{{episode.id}}" class="episodeinfo" style="display:none">
+          <div class="top">
+            <span>Description:</span>
+            <p>{{episode.desc}}</p>
+          </div>
+          <div class="bottom">
+            <div>
+              <span>Writers:</span>
+              <p>{{episode.writers}}</p>
+            </div>
+            <div>
+              <span>Air Date:</span>
+              <p>{{episode.originalAirDate}}</p>
+            </div>
           </div>
         </div>
       </div>
     </mat-expansion-panel>
-    <mat-expansion-panel hideToggle>
+
+    <mat-expansion-panel class="seasonPanel" hideToggle>
       <mat-expansion-panel-header>
         <mat-panel-title>
           <b>Season 5</b>
         </mat-panel-title>
         <mat-panel-description>
-          About Season 5
+          Futurama Movies
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <div>
         <div *ngFor="let episode of getSeason(5); let i = index">
-          <a (click)="DescSelected(episode.id,episode.desc)" class="btn btn-info">{{episode.title}}</a>
-          <div id="episodeInfo{{episode.id}}" style="display:none">
-            season: {{episode.season}}<br>
-            {{episode.writers}}<br><br>
-            {{episode.originalAirDate}}
+          <a (click)="OpenEpisodeInfo(episode.id,episode.desc)" class="btn btn-info">{{episode.id}}. {{episode.title}}</a>
+          <div id="episodeInfo{{episode.id}}" class="episodeinfo" style="display:none">
+            <div class="top">
+              <span>Description:</span>
+              <p>{{episode.desc}}</p>
+            </div>
+            <div class="bottom">
+              <div>
+                <span>Writers:</span>
+                <p>{{episode.writers}}</p>
+              </div>
+              <div>
+                <span>Air Date:</span>
+                <p>{{episode.originalAirDate}}</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
     </mat-expansion-panel>
-    <mat-expansion-panel hideToggle>
+
+    <mat-expansion-panel class="seasonPanel" hideToggle>
       <mat-expansion-panel-header>
         <mat-panel-title>
           <b>Season 6</b>
@@ -111,18 +231,29 @@
           About Season 6
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <div>
-        <div *ngFor="let episode of getSeason(6); let i = index">
-          <a (click)="DescSelected(episode.id,episode.desc)" class="btn btn-info">{{episode.title}}</a>
-          <div id="episodeInfo{{episode.id}}" style="display:none">
-            season: {{episode.season}}<br>
-            {{episode.writers}}<br><br>
-            {{episode.originalAirDate}}
+      
+      <div *ngFor="let episode of getSeason(6); let i = index">
+        <a (click)="OpenEpisodeInfo(episode.id,episode.desc)" class="btn btn-info">{{episode.id}}. {{episode.title}}</a>
+        <div id="episodeInfo{{episode.id}}" class="episodeinfo" style="display:none">
+          <div class="top">
+            <span>Description:</span>
+            <p>{{episode.desc}}</p>
+          </div>
+          <div class="bottom">
+            <div>
+              <span>Writers:</span>
+              <p>{{episode.writers}}</p>
+            </div>
+            <div>
+              <span>Air Date:</span>
+              <p>{{episode.originalAirDate}}</p>
+            </div>
           </div>
         </div>
       </div>
     </mat-expansion-panel>
-    <mat-expansion-panel hideToggle>
+
+    <mat-expansion-panel class="seasonPanel" hideToggle>
       <mat-expansion-panel-header>
         <mat-panel-title>
           <b>Season 7</b>
@@ -131,16 +262,25 @@
           About Season 7
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <div>
         <div *ngFor="let episode of getSeason(7); let i = index">
-          <a (click)="DescSelected(episode.id,episode.desc)" class="btn btn-info">{{episode.title}}</a>
-          <div id="episodeInfo{{episode.id}}" style="display:none">
-            season: {{episode.season}}<br>
-            {{episode.writers}}<br><br>
-            {{episode.originalAirDate}}
+          <a (click)="OpenEpisodeInfo(episode.id,episode.desc)" class="btn btn-info">{{episode.id}}. {{episode.title}}</a>
+          <div id="episodeInfo{{episode.id}}" class="episodeinfo" style="display:none">
+            <div class="top">
+              <span>Description:</span>
+              <p>{{episode.desc}}</p>
+            </div>
+            <div class="bottom">
+              <div>
+                <span>Writers:</span>
+                <p>{{episode.writers}}</p>
+              </div>
+              <div>
+                <span>Air Date:</span>
+                <p>{{episode.originalAirDate}}</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
     </mat-expansion-panel>
   </mat-accordion>
 </div>
