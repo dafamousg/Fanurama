@@ -9,7 +9,7 @@ I'm using the API from https://sampleapis.com/
 If there are questions about the API, please refer to GitHub repo: https://github.com/jermbo/SampleAPIs
 
 
-PROJECT CURRENTLY INCLUDES:
+###### PROJECT CURRENTLY INCLUDES:
 - Homepage
 - Character Guide
 - Episode Guide
