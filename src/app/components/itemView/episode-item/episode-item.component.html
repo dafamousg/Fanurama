@@ -1,11 +1,12 @@
 <div [ngClass]="setClasses()">
-	<mat-expansion-panel	(opened)="panelOpenState = true"	(closed)="panelOpenState = false">
+	<mat-expansion-panel *ngIf="episodes"	(opened)="panelOpenState = true"	(closed)="panelOpenState = false">
 		<mat-expansion-panel-header>
 			<mat-panel-title>
 			<span class="season"><b>Season {{episodes[0].season}}</b></span>
 			</mat-panel-title>
 			<mat-panel-description>
-			About Season {{episodes[0].season}}
+				<p *ngIf="episodes[0].season == 5">{{episodes?.length}} Movies</p>
+				<p *ngIf="episodes[0].season != 5">{{episodes?.length}} Episodes</p>
 			</mat-panel-description>
 		</mat-expansion-panel-header>
 

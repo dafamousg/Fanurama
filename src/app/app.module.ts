@@ -16,6 +16,8 @@ import { CharactersComponent } from './components/view/characters/characters.com
 import { NotCharactersPipe } from './pipes/not-characters.pipe';
 import { EpisodesComponent } from './components/view/episodes/episodes.component';
 import { EpisodeItemComponent } from './components/itemView/episode-item/episode-item.component';
+import { QuizItemComponent } from './components/itemView/quiz-item/quiz-item.component';
+import { QuizComponent } from './components/view/quiz/quiz.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { EpisodeItemComponent } from './components/itemView/episode-item/episode
     CharactersComponent,
     NotCharactersPipe,
     EpisodesComponent,
-    EpisodeItemComponent
+    EpisodeItemComponent,
+    QuizItemComponent,
+    QuizComponent
   ],
   imports: [
     BrowserModule,

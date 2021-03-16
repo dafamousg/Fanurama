@@ -16,7 +16,7 @@ export class EpisodeItemComponent implements OnInit {
   constructor(private futuramaServices:FuturamaAPIService) { }
 
   ngOnInit(): void {
-    console.log("Episode Item");
+    console.log("Episode", this.episodes);
   }
 
   setClasses() {
