@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Quiz} from '../../../Models/Quiz';
+import { FuturamaAPIService } from 'src/app/services/futurama-api.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-quiz',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuizComponent implements OnInit {
 
-  constructor() { }
+  subscription:Subscription;
+  quizQuestions:Quiz[];
+
+  constructor(private futuramaServices:FuturamaAPIService) { }
 
   ngOnInit(): void {
+    this.subscription = this.futuramaServices.getQuiz().subscribe(Qq => {
+      this.quizQuestions = Qq;
+    })
   }
 
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
+  }
 }
