@@ -9,17 +9,19 @@ import { FuturamaAPIService } from '../../../services/futurama-api.service';
 })
 export class EpisodeItemComponent implements OnInit {
 
-  @Input() episode:Episode;
+  @Input() episodes:Episode[];
+  panelOpenState = false;
+  episodeInfoOpenState = false;
 
   constructor(private futuramaServices:FuturamaAPIService) { }
 
   ngOnInit(): void {
-    console.log("Episode Item");
+    console.log("Episode", this.episodes);
   }
 
   setClasses() {
     let classes = {
-      character:true
+      episodes:true
     }
     return classes;
   }

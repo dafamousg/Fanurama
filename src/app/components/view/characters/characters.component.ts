@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import {Character} from '../../../Models/Character';
 import {FuturamaAPIService} from '../../../services/futurama-api.service';
 
@@ -10,36 +12,39 @@ import {FuturamaAPIService} from '../../../services/futurama-api.service';
 export class CharactersComponent implements OnInit {
 
   characters:Character[];
-  page:number = 1;
-  currentPage:number;
-  btnPrev = <HTMLInputElement> document.getElementById("btnPrev");
-
+  subscription:Subscription;
+  searchText:string;
 
   constructor(private futuramaServices:FuturamaAPIService) { }
 
   ngOnInit(): void {
-    this.GetCharacterByPage(this.page);
+    this.getCharacters();
+  }
+
+  getCharacters(){
+    this.subscription = this.futuramaServices.getAllCharacters().subscribe(characters => {
+      this.characters = characters;
+    })
+    /* this.subscription = this.futuramaServices.combinedObservable().subscribe(characters => {
+      this.characters = characters.sort((a, b) => a.Name.localeCompare(b.Name));;
+      console.log(characters);
+    }); */
   }
 
 
-  GetCharacterByPage(page:number){
-    this.futuramaServices.getAllCharacters(page).subscribe(characters => {
-      this.characters = characters;      
-    });
-    this.currentPage = page;
+  filterByName(){
+    return this.characters;
   }
 
-  buttonNext(page:number):void{
-    if(page < 21){
-      this.GetCharacterByPage(++page);
-    }
+  sortBy(prop: string) {
+    return this.characters.sort((a, b) => a[prop] > b[prop] ? 1 : a[prop] === b[prop] ? 0 : -1);
   }
 
-  buttonPrev(page:number):void{
-    if(page > 1)
-      this.GetCharacterByPage(--page);
-    else
-      this.btnPrev.disabled = true;
+  reverse(){
+    this.characters.reverse();
   }
 
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
+  }
 }

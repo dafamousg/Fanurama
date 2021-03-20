@@ -1,146 +1,19 @@
-<div>Episode Description: <p id="desc"></p></div>
-
 <br><br>
-
-<div>
+<div class="accordion">
   <mat-accordion>
-    <mat-expansion-panel hideToggle>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <b>Season 1</b>
-        </mat-panel-title>
-        <mat-panel-description>
-          About Season 1
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <div *ngFor="let episode of getSeason(1); let i = index">
-        <a (click)="DescSelected(episode.id,episode.desc)" class="btn btn-info">{{episode.title}}</a>
-        <div id="episodeInfo{{episode.id}}" style="display:none">
-          season: {{episode.season}}<br>
-          {{episode.writers}}<br><br>
-          {{episode.originalAirDate}}
-        </div>
-      </div>
-    </mat-expansion-panel>
-    <mat-expansion-panel hideToggle>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <b>Season 2</b>
-        </mat-panel-title>
-        <mat-panel-description>
-          About Season 2
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <div>
-        <div *ngFor="let episode of getSeason(2); let i = index">
-          <a (click)="DescSelected(episode.id,episode.desc)" class="btn btn-info">{{episode.title}}</a>
-          <div id="episodeInfo{{episode.id}}" style="display:none">
-            season: {{episode.season}}<br>
-            {{episode.writers}}<br><br>
-            {{episode.originalAirDate}}
-          </div>
-        </div>
-      </div>
-    </mat-expansion-panel>
-    <mat-expansion-panel hideToggle>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <b>Season 3</b>
-        </mat-panel-title>
-        <mat-panel-description>
-          About Season 3
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <div>
-        <div *ngFor="let episode of getSeason(3); let i = index">
-          <a (click)="DescSelected(episode.id,episode.desc)" class="btn btn-info">{{episode.title}}</a>
-          <div id="episodeInfo{{episode.id}}" style="display:none">
-            season: {{episode.season}}<br>
-            {{episode.writers}}<br><br>
-            {{episode.originalAirDate}}
-          </div>
-        </div>
-      </div>
-    </mat-expansion-panel>
-    <mat-expansion-panel hideToggle>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <b>Season 4</b>
-        </mat-panel-title>
-        <mat-panel-description>
-          About Season 4
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <div>
-        <div *ngFor="let episode of getSeason(4); let i = index">
-          <a (click)="DescSelected(episode.id,episode.desc)" class="btn btn-info">{{episode.title}}</a>
-          <div id="episodeInfo{{episode.id}}" style="display:none">
-            season: {{episode.season}}<br>
-            {{episode.writers}}<br><br>
-            {{episode.originalAirDate}}
-          </div>
-        </div>
-      </div>
-    </mat-expansion-panel>
-    <mat-expansion-panel hideToggle>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <b>Season 5</b>
-        </mat-panel-title>
-        <mat-panel-description>
-          About Season 5
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <div>
-        <div *ngFor="let episode of getSeason(5); let i = index">
-          <a (click)="DescSelected(episode.id,episode.desc)" class="btn btn-info">{{episode.title}}</a>
-          <div id="episodeInfo{{episode.id}}" style="display:none">
-            season: {{episode.season}}<br>
-            {{episode.writers}}<br><br>
-            {{episode.originalAirDate}}
-          </div>
-        </div>
-      </div>
-    </mat-expansion-panel>
-    <mat-expansion-panel hideToggle>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <b>Season 6</b>
-        </mat-panel-title>
-        <mat-panel-description>
-          About Season 6
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <div>
-        <div *ngFor="let episode of getSeason(6); let i = index">
-          <a (click)="DescSelected(episode.id,episode.desc)" class="btn btn-info">{{episode.title}}</a>
-          <div id="episodeInfo{{episode.id}}" style="display:none">
-            season: {{episode.season}}<br>
-            {{episode.writers}}<br><br>
-            {{episode.originalAirDate}}
-          </div>
-        </div>
-      </div>
-    </mat-expansion-panel>
-    <mat-expansion-panel hideToggle>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <b>Season 7</b>
-        </mat-panel-title>
-        <mat-panel-description>
-          About Season 7
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <div>
-        <div *ngFor="let episode of getSeason(7); let i = index">
-          <a (click)="DescSelected(episode.id,episode.desc)" class="btn btn-info">{{episode.title}}</a>
-          <div id="episodeInfo{{episode.id}}" style="display:none">
-            season: {{episode.season}}<br>
-            {{episode.writers}}<br><br>
-            {{episode.originalAirDate}}
-          </div>
-        </div>
-      </div>
-    </mat-expansion-panel>
+    <app-episode-item [episodes]="getSeason(1)">
+    </app-episode-item>
+    <app-episode-item [episodes]="getSeason(2)">
+    </app-episode-item>
+    <app-episode-item [episodes]="getSeason(3)">
+    </app-episode-item>
+    <app-episode-item [episodes]="getSeason(4)">
+    </app-episode-item>
+    <app-episode-item [episodes]="getSeason(5)">
+    </app-episode-item>
+    <app-episode-item [episodes]="getSeason(6)">
+    </app-episode-item>
+    <app-episode-item [episodes]="getSeason(7)">
+    </app-episode-item>
   </mat-accordion>
 </div>

@@ -19,11 +19,10 @@ export class Character{
     Age: string;
     Species: string;
     Planet: String;
-    
-    /*Profession: String;
-    Status: String;
     FirstAppearance: String;
     PicUrl: String;
     Relatives: String;
-    VoicedBy: String */
+    VoicedBy: String
+    Profession: String;
+    
 }

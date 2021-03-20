@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { empty } from 'rxjs';
 import {Episode} from '../../../Models/Episode';
 import {FuturamaAPIService} from '../../../services/futurama-api.service';
 
@@ -53,40 +52,6 @@ export class EpisodesComponent implements OnInit {
 
   getSeason(season:any){
     return this.episodes?.filter(episode => episode.season === season)
-  }
-
-  //Shows episode description on top of page in div element (id = desc)
-  DescSelected(id:any, desc:any){
-    var episodeId = document.getElementById("episodeInfo" + id);
-    var topDesc = document.getElementById("desc");
-
-    //If pageDesc is empty or episodeInfo is collapsed, show info and change pageDesc
-    if (!topDesc.innerHTML && episodeId.style.display === "none") {
-
-      episodeId.style.display = "block";
-      topDesc.innerHTML = desc;
-
-    }
-    //If pageDesc is not empty and episode info is opened, collapse info and remove pageDesc
-    else if(topDesc.innerHTML && episodeId.style.display === "block") {
-
-      episodeId.style.display = "none";
-      topDesc.innerHTML = "";
-
-    }
-    //If pageDesc is not empty and current episodeInfo is collapse, show new episodeInfo and pageDesc.
-    else if(topDesc.innerHTML && episodeId.style.display !== "block"){
-      var episode = this.episodes?.filter(ep => ep.desc === topDesc.innerHTML);
-
-      episode.map( e => {
-        document.getElementById("episodeInfo" + e.id).style.display="none";
-      })
-      
-      episodeId.style.display = "block";
-      topDesc.innerHTML = desc;
-
-    }
-  
   }
 
 }

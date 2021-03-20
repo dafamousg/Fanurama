@@ -1,4 +1,45 @@
 <div [ngClass]="setClasses()">
-    <div>{{episode.title}}</div>
-    <br/>
+	<mat-expansion-panel *ngIf="episodes"	(opened)="panelOpenState = true"	(closed)="panelOpenState = false">
+		<mat-expansion-panel-header>
+			<mat-panel-title>
+			<span class="season"><b>Season {{episodes[0].season}}</b></span>
+			</mat-panel-title>
+			<mat-panel-description>
+				<p *ngIf="episodes[0].season == 5">{{episodes?.length}} Movies</p>
+				<p *ngIf="episodes[0].season != 5">{{episodes?.length}} Episodes</p>
+			</mat-panel-description>
+		</mat-expansion-panel-header>
+
+
+		<div class="accordion">
+			<mat-accordion>
+				<div class="episodeContainer" *ngFor="let episode of episodes; let i = index">
+					<mat-expansion-panel hideToggle>
+					<mat-expansion-panel-header>
+						<mat-panel-title>
+						<span>{{episode.id}}. {{episode.title}}</span>
+						</mat-panel-title>
+					</mat-expansion-panel-header>
+
+						<div class="episodeinfo">
+							<div class="top">
+								<span>Description:</span>
+								<p>{{episode.desc}}</p>
+							</div>
+							<div class="bottom">
+								<div>
+									<span>Writers:</span>
+									<p>{{episode.writers}}</p>
+								</div>
+								<div>
+									<span>Air Date:</span>
+									<p>{{episode.originalAirDate}}</p>
+								</div>
+							</div>
+						</div>
+					</mat-expansion-panel>
+				</div>
+			</mat-accordion>
+		</div>
+	</mat-expansion-panel>
 </div>

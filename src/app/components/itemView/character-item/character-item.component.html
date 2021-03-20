@@ -1,31 +1,86 @@
-<div [ngClass]="setClasses()">
-    
-  <mat-card>
-    <mat-card-title>
-      <div mat-card-title-text>
-        <span class="mat-headline">{{character.Name}}</span>
-        <br>
-        <div *ngIf="character.Status">
-          <span class="mat-subheading-2">Status: {{character.Status}}</span>
+<div [ngClass]="setClasses()" class="characterCard">
+
+  <div class="cardView">
+    <div class="infoCard">
+      <div>
+        <!--Fix height for name so cardview looks same regardless of name length-->
+        <span class="name">{{character.Name}}</span>
+      </div>
+      <br>
+      <div class="img">
+        <img src="{{character.PicUrl}}" width="150px" height="187px"/>
+      </div>
+      <div class="status">
+        ({{character.Status}})
+      </div>
+      <div>
+        <button>Action 1</button>
+        <button>Action 2</button>
+      </div>
+      <br>
+      <!--Fix dropdown menu to display character information-->
+      <div class="dd">
+
+        <button class="dd-btn">Information</button>
+        <div class="dd-content">
+          
+          <div *ngIf="character.Age">
+            <span>Age:</span> 
+             <p>{{character.Age}}</p>
+          </div>
+          <div *ngIf="character.Species">
+            <span>Species:</span>
+            <p>{{character.Species}}</p>
+          </div>
+          <div *ngIf="character.Planet">
+            <span>Planet:</span>
+            <p>{{character.Planet}}</p>
+          </div>
+          <div *ngIf="character.Profession">
+            <span>Profession:</span> 
+            <p>{{character.Profession}}</p>
+          </div>
+          <div *ngIf="!character.Relatives.includes('relatives')">
+            <span>Relatives:</span>
+            <p>{{character.Relatives}}</p>
+          </div>
+          <div *ngIf="character.FirstAppearance">
+            <span>FirstAppearance:</span>
+            <p>{{character.FirstAppearance}}</p>
+          </div>
+          <div *ngIf="character.VoicedBy">
+            <span>VoicedBy:</span>
+            <p>{{character.VoicedBy}}</p>
+          </div>
+          
         </div>
       </div>
-      <div mat-card-title-media>
-        <div class="mat-media-lg card-media"></div>
-      </div>
-    </mat-card-title>
-    <mat-card-actions layout="row" layout-align="end center">
-      <button mat-button>Action 1</button>
-      <button mat-button>Action 2</button>
-    </mat-card-actions>
-  </mat-card>
-  
+  </div>
+  </div>
 
-    <div>
-      Name: {{character.Name}}
-      <br>
-      <div *ngIf="character.Status">
-        Status: {{character.Status}}
+    <!--#region Leela color change  -->
+    <!-- <div class="cardView-Leela"  *ngIf="character.Name.includes('Leela')">
+
+      <div>
+        <h1>{{character.Name}}</h1>
         <br>
+        <div *ngIf="character.Status">
+          <span >Status: {{character.Status}}</span>
+        </div>
+      </div>
+      <div>
+        <div></div>
+      </div>
+      <div>
+        <button>Action 1</button>
+        <button>Action 2</button>
+      </div>
+      <div>
+        Name: {{character.Name}}
+        <br>
+        <div *ngIf="character.Status">
+          Status: {{character.Status}}
+          <br>
         </div>
         <div *ngIf="character.Age">
           Age: {{character.Age}}
@@ -38,6 +93,10 @@
         <div *ngIf="character.Planet">
           Planet: {{character.Planet}}
         </div>
-        <br><br><br>
       </div>
-    </div>
+    </div> -->
+  <!--#endregion -->
+  
+</div>
+
+
