@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, concat, forkJoin} from 'rxjs';
 import { map } from 'rxjs/operators';
 import {Character} from '../Models/Character';
 import { Episode } from '../Models/Episode';
 import { Quiz } from '../Models/Quiz';
+import { Serie } from '../Models/Serie';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -42,8 +42,11 @@ export class FuturamaAPIService {
 
 
   getAllEpisodes():Observable<Episode[]>{
-
     return this.http.get<Episode[]>(`${this.sampleAPI}${this.episodeLink}`);
+  }
+
+  getSeriesInfo():Observable<Serie[]>{
+    return this.http.get<Serie[]>(`${this.sampleApiUrl+ this.serieInfoLink}`);;
   }
 
   getAllCharacters(pageNum:number = 1):Observable<Character[]>{
@@ -83,8 +86,8 @@ export class FuturamaAPIService {
     }));
   }
 
-
   getQuiz():Observable<Quiz[]>{
     return this.http.get<Quiz[]>(`${this.sampleAPI}${this.questionsLink}`);
   }
+
 }
