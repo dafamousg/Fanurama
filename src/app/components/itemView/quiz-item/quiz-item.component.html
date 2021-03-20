@@ -1,0 +1,8 @@
+<div [ngClass]="setClasses()">
+    <h3>Quiz question</h3>
+    <p>{{quizQuestion.question}}</p>
+    <p>Options</p>
+    <div *ngFor="let option of quizQuestion.possibleAnswers">
+        <p style="background-color: gray;" (click)="optionChoice(option)">{{option}}</p>
+    </div>
+</div>

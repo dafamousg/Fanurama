@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import {Character} from '../Models/Character';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { Episode } from '../Models/Episode';
 import {Observable, concat, forkJoin} from 'rxjs';
 import { map } from 'rxjs/operators';
+import {Character} from '../Models/Character';
+import { Episode } from '../Models/Episode';
+import { Quiz } from '../Models/Quiz';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -20,7 +21,9 @@ export class FuturamaAPIService {
   apiUrl:string = 'https://futuramaapi.herokuapp.com/api/';
   AllCharactersLink:string = 'v2/characters';
   pageLink:string = '?page=';
-  episodeLink:string = 'https://api.sampleapis.com/futurama/episodes';
+  sampleAPI = 'https://api.sampleapis.com/futurama/';
+  episodeLink:string = 'episodes';
+  questionsLink:string = 'questions';
   
 
   //New(Current) API
@@ -30,7 +33,7 @@ export class FuturamaAPIService {
 
 
   getAllEpisodes():Observable<Episode[]>{
-    return this.http.get<Episode[]>(`${this.episodeLink}`);
+    return this.http.get<Episode[]>(`${this.sampleAPI}${this.episodeLink}`);
   }
 
   getAllCharacters(pageNum:number = 1):Observable<Character[]>{
@@ -70,4 +73,8 @@ export class FuturamaAPIService {
     }));
   }
 
+
+  getQuiz():Observable<Quiz[]>{
+    return this.http.get<Quiz[]>(`${this.sampleAPI}${this.questionsLink}`);
+  }
 }

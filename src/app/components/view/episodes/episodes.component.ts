@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { empty } from 'rxjs';
 import {Episode} from '../../../Models/Episode';
 import {FuturamaAPIService} from '../../../services/futurama-api.service';
 
