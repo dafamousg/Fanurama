@@ -33,7 +33,7 @@ export class FuturamaAPIService {
   ///#region Sample API
   //https://sampleapis.com/futurama
   ////#endregion
-  sampleApiUrl:string = 'https://sampleapis.com/futurama/api/';
+  //sampleApiUrl:string = 'https://sampleapis.com/futurama/api/';
   episodesLink:string = 'episodes';
   serieInfoLink:string = 'info';
   
@@ -46,7 +46,7 @@ export class FuturamaAPIService {
   }
 
   getSeriesInfo():Observable<Serie[]>{
-    return this.http.get<Serie[]>(`${this.sampleApiUrl+ this.serieInfoLink}`);;
+    return this.http.get<Serie[]>(`${this.sampleAPI+ this.serieInfoLink}`);;
   }
 
   getAllCharacters(pageNum:number = 1):Observable<Character[]>{
