@@ -23,17 +23,11 @@ export class HomeComponent implements OnInit {
 
   //Scroll animation Spaceship
   @HostListener('window:scroll', ['$event'])
-  scrollAnimation(event){
-    console.log("this is scroll..");
+  scrollAnimation(){
     let ss = document.getElementById("ss");
     
     var value = window.scrollY;
-    
-    
-    
-    ss.style.right = -value + 150 + 'px';
-    
-
+    ss.style.left = (value * 2 ) + 'px';
   }
 
 

@@ -1,9 +1,37 @@
-<div class="selection">
-    <img [src]="'assets/trio-transparent.png'" id="trio"/>
+<header class="header">
+    <nav>
+        <a routerLink="/">Home</a>
+        <a routerLink="/characters">Characters</a>
+        <a routerLink="/episodes">Episodes</a>
+        <a routerLink="/quiz">Quiz</a>
+        <a routerLink="/">Cast</a>
+    </nav>
+</header>
+<div class="intro-container">
     <div class="futurama-intro">
         <img [src]="'assets/logo-intro.png'" id="logo"/>
+        <div *ngIf="serie" class="serieInfo" data-aos="zoom-in" data-aos-anchor-placement="bottom-bottom">
+            <p>
+                Philip J. Fry is a 25 year old delivery boy living in New York City who is cryogenically frozen on New Year's 1999 for 1000 years, where he wakes up in New New York City on December 31, 2999.
+                There, he meets Turanga Leela, a tough but loving, beautiful one-eyed alien; and Bender, an alcohol-powered bending robot who is addicted to liquor, cigars, stealing, amongst other things.
+            </p>
+        </div>
+        <!--<div *ngIf="serie" class="serieInfo" data-aos="zoom-in" data-aos-anchor-placement="bottom-bottom">
+            {{serie.synopsis}}
+        </div>-->
+    </div>
+    <div id="trio-container">
+        <img [src]="'assets/trio-transparent.png'" id="trio"/>
     </div>
 </div>
+
+
+
+<div class="container-2">
+    <img [src]="'assets/space.gif'" id="ss" (scroll)="scrollAnimation()"/>
+</div>
+
+<!--
 <div class="container-1">
     <div class="btns" data-aos="zoom-in">
         <a type="button" [routerLink]="'/characters'" class="btn btn-2">Character</a>
@@ -46,3 +74,5 @@
         <a class="btn btn-2">Cast</a>
     </div>
 </div>
+
+-->
