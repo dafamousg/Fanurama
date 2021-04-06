@@ -6,5 +6,5 @@ class creators{
 export class Serie{
     synopsis:string;
     yearsAired:string;
-    creators:creators;
+    creators:[creators];
 }

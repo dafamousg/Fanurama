@@ -24,11 +24,47 @@
         <img [src]="'assets/trio-transparent.png'" id="trio"/>
     </div>
 </div>
-
-
-
-<div class="container-2">
+<div class="container">
     <img [src]="'assets/space.gif'" id="ss" (scroll)="scrollAnimation()"/>
+    <div class="sub-container characters">
+        <p>Fry Leela Bender Fonsworth</p>
+        <div class="btns" data-aos="zoom-in">
+            <a type="button" [routerLink]="'/characters'" class="btn btn-2">Character</a>
+        </div>
+    </div>
+    <div class="sub-container episode">
+        <p>128 episodes</p>
+        <div class="btns" data-aos="zoom-in">
+            <a type="button" [routerLink]="'/episodes'" class="btn btn-2">Episodes</a>
+        </div>
+    </div>
+    <div class="sub-container creator">
+        <div>
+            <p>Creators</p>
+            <div class="card">
+                <img src="../../../../assets/creators/Matt_Groening.jpg" height="150px" width="130px">
+                <p>Matt Groening</p>
+            </div>
+            <div class="card">
+                <img src="../../../../assets/creators/David_X._Cohen.jpg" height="150px" width="130px">
+                <p>David X. Cohen</p>
+            </div>
+        </div>
+        <div class="btns" data-aos="zoom-in">
+            <a type="button" [routerLink]="'/cast'" class="btn btn-2">More Casts >></a>
+        </div>
+    </div>
+    <div class="sub-container quiz">
+        <p>Do you dare challenge Morbo in a quiz battle??!!</p>
+        <div class="btns" data-aos="zoom-in">
+            <a type="button" [routerLink]="'/quiz'" class="btn btn-2">Quiz</a>
+        </div>
+    </div>
+</div>
+<div class="container-2">
+    <div class="btns" data-aos="zoom-in">
+        <a type="button" [routerLink]="'/characters'" class="btn btn-2">Character</a>
+    </div>
 </div>
 
 <!--

@@ -1,6 +1,10 @@
+*{
+  color: wheat;
+}
+
 div{
   margin: auto;
-  padding: 10px;
+  padding: 1rem 3rem;
   text-align: center;
 }
 
@@ -13,7 +17,6 @@ div{
   right: 0;
   z-index: 10;
   a {
-    color: #fff;
     text-decoration: none;
     margin: 0 35px;
   }
@@ -46,7 +49,7 @@ div{
     height: 100px;
   }
   .serieInfo{
-    color: wheat;
+    padding: 1rem;
     background: rgba(0,0,0, 0.25);
     border-radius: 40px;
   }
@@ -60,6 +63,34 @@ div{
     position: absolute;
     right: 0;
     bottom: 0;
+  }
+}
+
+.container{
+  width: 100%;
+  position: relative;
+  background: linear-gradient(rgba(0,0,0,1), rgba(0, 0, 0, 0.5),rgba(0,0,0,1)),url(/assets/empty-space.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow: hidden;
+  text-align: left;
+  #ss{
+    position: relative;
+    width: 35%;
+  }
+}
+
+.sub-container{
+  border-bottom: 1px solid white;
+}
+
+.creator{
+  .card{
+    display: inline-block;
+    img {
+      border-radius: 50%;
+    }
   }
 }
 
@@ -102,34 +133,10 @@ div{
 
 
 
-.container-1{
-  background: linear-gradient(to top,rgba(0,0,0,1), rgba(39, 39, 39, 0.5),rgba(0,0,0,1)), url(/assets/nebula.jpg);
-  //background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  height: 100vh;
-}
-
 .container-2{
-  color: #fff;
-  position: relative;
-  width: 100%;
-  background: linear-gradient(rgba(0,0,0,0.9), rgba(0, 0, 0, 0.8),rgba(0,0,0,0.9)),url(/assets/empty-space.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  text-align: left;
-  #ss{
-    position: relative;
-    width: 35%;
-    //right: 450px;
-    //height: 100%;
-    //background: url(../../../../../pics/space.gif);
-    //background-repeat: no-repeat;
-  }
+  background: black;
 }
+
 
 .container-3{
   background: linear-gradient(rgba(0, 0, 0, 1) ,rgba(0, 0, 0, .1) , rgba(0, 0, 0, 1)), url(/assets/futurama-2.jpg);
@@ -162,7 +169,6 @@ button{
   padding-top: 75px;
   background: #ccc;
   text-align: center;
-  color: #FFF;
   font-size: 3em;
 }
 
@@ -209,12 +215,11 @@ body {
 
 //default button
 .btn {
-  color: rgb(255, 255, 255);
   cursor: pointer;
   font-size:16px;
   font-weight: 400;
   line-height: 45px;
-  margin: 0 0 2em;
+  //margin: 0 0 2em;
   max-width: 160px; 
   position: relative;
   text-decoration: none;
@@ -223,7 +228,7 @@ body {
   
   @media(min-width: 600px) {
       
-    margin: 0 1em 2em;
+    //margin: 0 1em 2em;
     
   }
   
@@ -248,7 +253,7 @@ body {
 .btn-2:after,
 .btn-2:before {
   backface-visibility: hidden;
-  border: 1px solid rgba(rgb(255, 255, 255), 0);
+  border: 1px solid rgba(245, 222, 179, 0);
   bottom: 0px;
   content: " ";
   display: block;
