@@ -20,6 +20,11 @@ export class QuizComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscription = this.futuramaServices.getQuiz().subscribe(Qq => {
+      
+      if(Qq["question"] == undefined){
+        Qq.splice(Qq.length -2,2);
+      }
+      
       Qq.map(question => {
         question.possibleAnswers = this.shuffle(question.possibleAnswers);
       });

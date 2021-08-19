@@ -1,11 +1,21 @@
-<h2>This is the main Quiz</h2>
-<div *ngIf="(quizQuestions) && (currentQuestion != questionLength + 1)" >
-    <app-quiz-item (valueChange)="pointCheck($event)"
+<div class="center">
+    <h2>This is the main Quiz</h2>
+    
+    <!--
+        Main Quiz View
+    -->
+    <div *ngIf="(quizQuestions) && (currentQuestion != questionLength + 1)" >
+        <app-quiz-item (valueChange)="pointCheck($event)"
         [quizQuestion]="QuestionToItem(quizQuestions)">
     </app-quiz-item>
     
-    <h6>{{currentQuestion}}/{{questionLength}} (points: {{answeredCorrect}})</h6>
-</div>
-<div *ngIf="(currentQuestion == questionLength + 1)">
-    <p>You got {{answeredCorrect}} points out of {{questionLength}}</p>
+        <h6 style="color: black; text-align: left;">{{currentQuestion}}/{{questionLength}} (points: {{answeredCorrect}})</h6>
+    </div>
+
+    <!--
+        Result view
+    -->
+    <div *ngIf="(currentQuestion == questionLength + 1)">
+        <p style="color: black;">You got {{answeredCorrect}} points out of {{questionLength}}</p>
+    </div>
 </div>
