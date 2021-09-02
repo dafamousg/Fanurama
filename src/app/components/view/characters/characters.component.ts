@@ -21,14 +21,15 @@ export class CharactersComponent implements OnInit {
     this.getCharacters();
   }
 
-  getCharacters(){
-    this.subscription = this.futuramaServices.getAllCharacters().subscribe(characters => {
-      this.characters = characters;
-    })
-    /* this.subscription = this.futuramaServices.combinedObservable().subscribe(characters => {
-      this.characters = characters.sort((a, b) => a.Name.localeCompare(b.Name));;
-      console.log(characters);
-    }); */
+  async getCharacters(){
+    const loadingSpan = document.getElementById("loading");
+    loadingSpan.style.visibility = "visible";
+    this.characters = await this.futuramaServices.combinedObservable()
+    .then(data => {
+      console.log(data);
+      loadingSpan.style.visibility = "hidden";
+      return data;
+    });
   }
 
 
@@ -36,8 +37,8 @@ export class CharactersComponent implements OnInit {
     return this.characters;
   }
 
-  sortBy(prop: string) {
-    return this.characters.sort((a, b) => a[prop] > b[prop] ? 1 : a[prop] === b[prop] ? 0 : -1);
+  sortBy() {
+    this.characters.sort((a, b) => a.Name > b.Name ? 1 : a.Name === b.Name ? 0 : -1);
   }
 
   reverse(){
@@ -45,6 +46,5 @@ export class CharactersComponent implements OnInit {
   }
 
   ngOnDestroy(){
-    this.subscription.unsubscribe();
   }
 }

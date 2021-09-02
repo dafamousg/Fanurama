@@ -1,9 +1,11 @@
 <div class="searchOrder">
     <input type="text" [(ngModel)]="searchText"/>
     <button (click)="reverse()"> Reverse Order</button>
+    <button (click)="sortBy()"> Sort Order</button>
 </div>
 <div ngClass="img-grid">
     <app-character-item ngClass="img-wrap" *ngFor="let character of characters | notCharacters: searchText"
     [character]="character">
     </app-character-item>
+    <span id="loading" style="visibility: hidden;">Loading...</span>
 </div>
