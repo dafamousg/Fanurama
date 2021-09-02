@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable, concat, forkJoin} from 'rxjs';
+import {Observable, concat, forkJoin, Subscription} from 'rxjs';
 import { map } from 'rxjs/operators';
 import {Character} from '../Models/Character';
 import { Episode } from '../Models/Episode';
@@ -24,7 +24,17 @@ export class FuturamaAPIService {
   sampleAPI = 'https://api.sampleapis.com/futurama/';
   episodeLink:string = 'episodes';
   questionsLink:string = 'questions';
-  
+  subscription:Subscription;
+  pageNum:number = 1;
+  previousResponse:Character[] = [];
+
+  getObj:object = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    }
+  };
 
   //New(Current) API
   //apiUrl:string = 'https://sampleapis.com/futurama/api/characters';
@@ -36,41 +46,25 @@ export class FuturamaAPIService {
     return this.http.get<Episode[]>(`${this.sampleAPI}${this.episodeLink}`);
   }
 
-  getAllCharacters(pageNum:number = 1):Observable<Character[]>{
-    //return this.concatCall(1);
-    var ch = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + pageNum}`);
-    
-    return ch;
-  }
+  async combinedObservable():Promise<Character[]>
+  {    
+    let characterCall:Character[] = await fetch(this.apiUrl + this.AllCharactersLink + this.pageLink + this.pageNum, this.getObj)
+    .then(res => res.json())
+    .then(data => {
+      
+      const response = [...this.previousResponse, ...data];
 
-  //Tried Concat but didn't work.
-  combinedObservable():Observable<Character[]>{
-    const character1 =  this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 1}`);
-    const character2 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 2}`);
-    const character3 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 3}`);
-    const character4 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 4}`);
-    const character5 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 5}`);
-    const character6 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 6}`);
-    const character7 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 7}`);
-    const character8 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 8}`);
-    const character9 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 9}`);
-    const character10 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 10}`);
-    const character11 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 11}`);
-    const character12 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 12}`);
-    const character13 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 13}`);
-    const character14 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 14}`);
-    const character15 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 15}`);
-    const character16 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 16}`);
-    const character17 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 17}`);
-    const character18 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 18}`);
-    const character19 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 19}`);
-    const character20 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 20}`);
-    const character21 = this.http.get<Character[]>(`${this.apiUrl + this.AllCharactersLink + this.pageLink + 21}`);
+      if(data.length > 0)
+      {
+        ++this.pageNum;
+        this.previousResponse = response;
+        return this.combinedObservable();
+      }
+      
+      return response;
+    });
     
-
-    return forkJoin([character1, character2, character3, character4, character5, character6, character7, character8, character9, character10, character11, character12, character13, character14, character15, character16, character17, character18, character19, character20, character21]).pipe(map(res => {
-      return [].concat(...res);
-    }));
+    return characterCall;
   }
 
 
