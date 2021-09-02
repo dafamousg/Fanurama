@@ -14,7 +14,6 @@ export class CharacterItemComponent implements OnInit {
   constructor(private futuramaServices:FuturamaAPIService) { }
 
   ngOnInit(): void {
-    console.log("Character Item");
   }
 
   setClasses() {
