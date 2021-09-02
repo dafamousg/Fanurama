@@ -23,11 +23,10 @@ export class CharactersComponent implements OnInit {
 
   async getCharacters(){
     const loadingSpan = document.getElementById("loading");
-    loadingSpan.style.visibility = "visible";
     this.characters = await this.futuramaServices.combinedObservable()
     .then(data => {
       console.log(data);
-      loadingSpan.style.visibility = "hidden";
+      loadingSpan.style.display = "none";
       return data;
     });
   }
