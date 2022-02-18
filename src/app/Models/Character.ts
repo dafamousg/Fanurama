@@ -12,17 +12,16 @@ class info{
 
 export class Character{
     
-    Name:string;
-    
-
-    Status:string;
+    Id: string;
+    Name: string;
+    Status: string;
     Age: string;
     Species: string;
-    Planet: String;
-    FirstAppearance: String;
-    PicUrl: String;
-    Relatives: String;
-    VoicedBy: String
-    Profession: String;
+    Planet: string;
+    FirstAppearance: string;
+    PicUrl: string;
+    Relatives: string;
+    VoicedBy: string
+    Profession: string;
     
 }

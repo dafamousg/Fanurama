@@ -1,9 +1,58 @@
-<div [ngClass]="setClasses()" class="characterCard">
+<div [ngClass]="setClasses()" class="card-container">
 
-  <div class="cardView">
+	<div class="front">
+		<div class="firstContainer">
+			<div class="name">
+				<p>{{character.Name}}</p>
+			</div>
+    		<div id="{{character.Id}}" class="img">
+				<div class="frontInfo">
+					<p>{{character.Species}}</p>
+					<p>{{character.Profession}}</p>
+				</div>	
+			</div>
+		</div>
+	</div>
+	<div class="back">
+		<div class="firstContainer">
+			<div class="name">
+				<p>{{character.Name}}</p>
+			</div>
+			<div class="backInfo">
+				<div class="planet">
+					<!--
+						Image of characters home planet 
+						with name of planet on top.
+					-->
+				</div>
+				<p>Age: {{character.Age}}</p>
+				<p>Appearance: {{character.FirstAppearance}}</p>
+				<p>VoicedBy: {{character.VoicedBy}}</p>
+			</div>
+			<div class="lifeStatus">
+				<!-- Gif to represent alive/(dead or Unknown) -->
+				{{character.Status}}
+			</div>
+			<div class="relatives">
+				<!-- Dropdown for relatives -->
+				Relatives
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+  <!-- <div class="cardView">
     <div class="infoCard">
       <div>
-        <!--Fix height for name so cardview looks same regardless of name length-->
+        !--Fix height for name so cardview looks same regardless of name length--
         <span class="name">{{character.Name}}</span>
       </div>
       <br>
@@ -18,7 +67,7 @@
         <button>Action 2</button>
       </div>
       <br>
-      <!--Fix dropdown menu to display character information-->
+      !--Fix dropdown menu to display character information--
       <div class="dd">
 
         <button class="dd-btn">Information</button>
@@ -56,7 +105,7 @@
         </div>
       </div>
   </div>
-  </div>
+  </div> -->
 
     <!--#region Leela color change  -->
     <!-- <div class="cardView-Leela"  *ngIf="character.Name.includes('Leela')">

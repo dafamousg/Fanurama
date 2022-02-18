@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UUID } from 'angular2-uuid';
 import { Observable, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import {Character} from '../../../Models/Character';
@@ -21,18 +22,25 @@ export class CharactersComponent implements OnInit {
     this.getCharacters();
   }
 
-  async getCharacters(){
+  async getCharacters(): Promise<void> {
     const loadingSpan = document.getElementById("loading");
+    
     this.characters = await this.futuramaServices.combinedObservable()
-    .then(data => {
+    .then((data:Character[]) => {
+    
+      data.forEach((character:Character) => {
+        character.Id = UUID.UUID();
+      });
+      
       console.log(data);
       loadingSpan.style.display = "none";
+    
       return data;
     });
   }
 
 
-  filterByName(){
+  filterByName() {
     return this.characters;
   }
 
@@ -40,10 +48,10 @@ export class CharactersComponent implements OnInit {
     this.characters.sort((a, b) => a.Name > b.Name ? 1 : a.Name === b.Name ? 0 : -1);
   }
 
-  reverse(){
+  reverse() {
     this.characters.reverse();
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
   }
 }
